@@ -1,0 +1,6 @@
+filegroup(
+    name = "workspace",
+    srcs = [
+        "WORKSPACE",
+    ],
+)

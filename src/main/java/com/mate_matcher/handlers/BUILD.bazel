@@ -1,0 +1,18 @@
+java_library(
+    name = "handlers",
+    srcs = glob([
+        "*.java",
+    ]),
+    visibility = [
+        "//visibility:public",
+    ],
+    deps = [
+        "@maven//:com_google_guava_guava",
+        "@maven//:org_apache_httpcomponents_httpclient",
+        "@maven//:org_eclipse_jetty_jetty_server",
+        "@maven//:org_eclipse_jetty_jetty_servlet",
+        "@maven//:org_eclipse_jetty_jetty_servlets",
+        "@maven//:org_eclipse_jetty_jetty_util",
+        "@maven//:org_eclipse_jetty_toolchain_jetty_servlet_api",
+    ],
+)
