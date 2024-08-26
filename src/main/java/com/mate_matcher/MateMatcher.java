@@ -1,6 +1,7 @@
 package com.mate_matcher;
 import com.google.common.base.Strings;
 import com.mate_matcher.handlers.LoginHandler;
+import com.mate_matcher.storage.MongoStorage;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
@@ -16,7 +17,7 @@ public class MateMatcher{
         ServletContextHandler handler = new ServletContextHandler(ServletContextHandler.NO_SESSIONS);
         handler.setContextPath("/");
         server.setHandler(handler);
-
+        MongoStorage connect = new MongoStorage();
         handler.addServlet(new ServletHolder(new LoginHandler()), "/login");
 
         server.start();
