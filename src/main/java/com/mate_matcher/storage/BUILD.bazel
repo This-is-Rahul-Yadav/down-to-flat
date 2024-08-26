@@ -1,0 +1,11 @@
+java_library(
+    name = "storage",
+    srcs = glob([
+        "*.java",
+    ]),
+    visibility = [
+        "//visibility:public",
+    ],
+    deps = [
+    ],
+)
