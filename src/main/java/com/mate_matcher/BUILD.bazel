@@ -5,6 +5,7 @@ java_binary(
     ]),
     deps = [
         "//src/main/java/com/mate_matcher/handlers",
+        "//src/main/java/com/mate_matcher/storage",
         "@maven//:com_google_guava_guava",
         "@maven//:org_apache_httpcomponents_httpclient",
         "@maven//:org_eclipse_jetty_jetty_server",
