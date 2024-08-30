@@ -1,23 +1,27 @@
 package com.mate_matcher.storage;
 
 import com.mongodb.*;
-
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.model.Filters;
 
+import com.mate_matcher.storage.DtfUser;
 import org.bson.BsonDocument;
 import org.bson.BsonInt64;
 import org.bson.Document;
 import org.bson.conversions.Bson;
+import org.bson.types.ObjectId;
 
+import javax.print.Doc;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MongoStorage {
-
-        public void connect(){
-            String uri = "mongodb+srv://agrawal99sanskar:<pass>@cluster0.9myihrx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+    public MongoClient mongoClient;
+        public MongoClient connect(){
+            String uri = "mongodb+srv://agrawal99sanskar:<>@cluster0.9myihrx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
             ServerApi serverApi = ServerApi.builder()
                     .version(ServerApiVersion.V1)
@@ -28,8 +32,10 @@ public class MongoStorage {
                     .serverApi(serverApi)
                     .build();
 
-            try (MongoClient mongoClient = MongoClients.create(settings)) {
-                MongoDatabase database = mongoClient.getDatabase("admin");
+            mongoClient = MongoClients.create(settings);
+
+
+                MongoDatabase database = mongoClient.getDatabase("sample_mflix");
                 try {
                     // Send a ping to confirm a successful connection
                     Bson command = new BsonDocument("ping", new BsonInt64(1));
@@ -38,10 +44,34 @@ public class MongoStorage {
                 } catch (MongoException me) {
                     System.err.println(me);
                 }
+            return mongoClient;
             }
 
-
+    public void closeConnection(MongoClient mongoClient) {
+        if (mongoClient != null) {
+            mongoClient.close();
+            System.out.println("MongoDB connection closed.");
         }
+    }
 
+    public DftMovie findUserById(String id, String collectionName, MongoClient mongoClientv2) {
+        MongoDatabase database = mongoClientv2.getDatabase("sample_mflix");
+        MongoCollection<Document> collection = database.getCollection(collectionName);
+        Document doc = collection.find(Filters.eq("_id", new ObjectId(id))).first();
+        if (doc != null) {
+            DftMovie user = new DftMovie();
+            user.setId(doc.getObjectId("_id"));
+            user.setName(doc.getString("name"));
+            user.setEmail(doc.getString("email"));
+            user.setMovieId(doc.getObjectId("movie_id"));
+            user.setText(doc.getString("text"));
+            user.setDate(doc.getDate("date"));
+            return user;
+        }
+        else{
+            System.out.println("Something else");
+        }
+        return null;
+    }
 
 }

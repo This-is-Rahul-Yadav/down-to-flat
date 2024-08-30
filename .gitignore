@@ -1,6 +1,6 @@
-.ijwb/
-bazel-bin/
-bazel-mate-matcher-java/
-bazel-out/
-bazel-testlogs/
 
+.ijwb
+bazel-testlogs/
+bazel-bin/
+bazel-out/
+bazel-down-to-flat/

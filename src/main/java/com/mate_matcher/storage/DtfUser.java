@@ -4,8 +4,10 @@ import java.util.List;
 import java.util.Map;
 
 public class DtfUser {
+
     public String userId;
     public String name;
+    public String email;
     public boolean ownsHouse;
     public String houseId;
     public int age;

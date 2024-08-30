@@ -7,6 +7,7 @@ java_binary(
         "//src/main/java/com/mate_matcher/handlers",
         "//src/main/java/com/mate_matcher/storage",
         "@maven//:com_google_guava_guava",
+        "@maven//:org_mongodb_mongodb_driver_sync",
         "@maven//:org_apache_httpcomponents_httpclient",
         "@maven//:org_eclipse_jetty_jetty_server",
         "@maven//:org_eclipse_jetty_jetty_servlet",
@@ -14,4 +15,5 @@ java_binary(
         "@maven//:org_eclipse_jetty_jetty_util",
         "@maven//:org_eclipse_jetty_toolchain_jetty_servlet_api",
     ],
+
 )
