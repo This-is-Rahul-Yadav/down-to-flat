@@ -70,6 +70,9 @@ maven_install(
         "org.eclipse.jetty:jetty-servlets:10.0.13",
         "org.eclipse.jetty:jetty-util:10.0.13",
         "org.apache.httpcomponents:httpclient:4.5.13",
+        "org.mongodb:mongodb-driver-sync:5.1.3",
+        "org.mongodb:mongodb-driver-core:5.1.3",
+        "org.mongodb:bson:5.1.3",
     ],
     excluded_artifacts = [
     ],

@@ -7,5 +7,8 @@ java_library(
         "//visibility:public",
     ],
     deps = [
+        "@maven//:org_mongodb_bson",
+        "@maven//:org_mongodb_mongodb_driver_core",
+        "@maven//:org_mongodb_mongodb_driver_sync",
     ],
 )
