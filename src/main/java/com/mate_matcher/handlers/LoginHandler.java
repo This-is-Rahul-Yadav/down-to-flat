@@ -1,5 +1,7 @@
 package com.mate_matcher.handlers;
 
+import com.mate_matcher.storage.DtfUser;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
