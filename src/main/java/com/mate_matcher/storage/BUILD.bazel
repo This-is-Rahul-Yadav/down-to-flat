@@ -7,6 +7,9 @@ java_library(
     visibility = [
         "//visibility:public",
     ],
+    resources = [
+        "//src/main/java/com/config:config",
+    ],
     deps = [
         "@maven//:org_mongodb_bson",
         "@maven//:org_mongodb_mongodb_driver_core",

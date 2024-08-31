@@ -4,3 +4,4 @@ bazel-testlogs/
 bazel-bin/
 bazel-out/
 bazel-down-to-flat/
+/src/main/java/com/config/config.properties
